@@ -15,6 +15,10 @@ on:
       sourcecode:
         description: 'Source code URL'     
         required: true
+      branch:
+        description: 'Source code branch'     
+        required: true
+        default: 'master'
       pkgname:
         description: 'Openwrt package name'  
         required: true
@@ -40,6 +44,7 @@ jobs:
         BOARD: ${{ github.event.inputs.device }}
         EMAIL: ${{ github.event.inputs.email }}
         PASSWORD: ${{ github.event.inputs.password }}
+        BRANCH: ${{ github.event.inputs.branch }}
       run: |
         cd $GITHUB_WORKSPACE
         chmod +x ./build.sh
