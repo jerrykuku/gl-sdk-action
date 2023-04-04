@@ -5,6 +5,7 @@ echo BOARD: "$BOARD"
 EMAIL=${EMAIL:-"aa@163.com"}
 echo EMAIL: "$EMAIL"
 echo PASSWORD: "$PASSWORD"
+echo BRANCH: "$BRANCH"
 
 WORKDIR="$(pwd)"
 
@@ -17,7 +18,7 @@ git config --global user.name "aa"
 
 mkdir -p  ${WORKDIR}/buildsource
 cd  ${WORKDIR}/buildsource
-git clone "$SOURCECODEURL"
+git clone -b $BRANCH "$SOURCECODEURL"
 cd  ${WORKDIR}
 
 
